@@ -4,21 +4,24 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import edu.eci.ieti.data.User;
 import edu.eci.ieti.dto.UserDTO;
-
+@Service
 public class UserServiceimpl implements UserService {
 	UserDTO newuser = new UserDTO();
 	private HashMap<String, User> hash = new HashMap<String,User>();
 
 	@Override
 	public User create(User user) {
-		
-		user.setName(user.getName());
-		user.setEmail(user.getEmail());
-		user.setLastName(user.getLastName());
-		hash.put(user.getId(), user);
-		return user;
+		User Createuser = new User();
+		Createuser.setName(user.getName());
+		Createuser.setEmail(user.getEmail());
+		Createuser.setLastName(user.getLastName());
+		Createuser.setId(user.getId());
+		hash.put(Createuser.getId(), user);
+		return Createuser;
 		
 	}
 
